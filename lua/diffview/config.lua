@@ -130,7 +130,7 @@ M.defaults = {
       { "n", "<C-w><C-f>",  actions.goto_file_split,                { desc = "Open the file in a new split" } },
       { "n", "<C-w>gf",     actions.goto_file_tab,                  { desc = "Open the file in a new tabpage" } },
       { "n", "<leader>e",   actions.focus_files,                    { desc = "Bring focus to the file panel" } },
-      { "n", "<leader>b",   actions.toggle_files,                   { desc = "Toggle the file panel." } },
+      -- <leader>b removed: vreview.toggle_panels() owns this binding.
       { "n", "g<C-x>",      actions.cycle_layout,                   { desc = "Cycle through available layouts." } },
       { "n", "[x",          actions.prev_conflict,                  { desc = "In the merge-tool: jump to the previous conflict" } },
       { "n", "]x",          actions.next_conflict,                  { desc = "In the merge-tool: jump to the next conflict" } },
@@ -201,7 +201,7 @@ M.defaults = {
       { "n", "f",              actions.toggle_flatten_dirs,            { desc = "Flatten empty subdirectories in tree listing style" } },
       { "n", "R",              actions.refresh_files,                  { desc = "Update stats and entries in the file list" } },
       { "n", "<leader>e",      actions.focus_files,                    { desc = "Bring focus to the file panel" } },
-      { "n", "<leader>b",      actions.toggle_files,                   { desc = "Toggle the file panel" } },
+      -- <leader>b removed: vreview.toggle_panels() owns this binding.
       { "n", "g<C-x>",         actions.cycle_layout,                   { desc = "Cycle available layouts" } },
       { "n", "[x",             actions.prev_conflict,                  { desc = "Go to the previous conflict" } },
       { "n", "]x",             actions.next_conflict,                  { desc = "Go to the next conflict" } },
@@ -242,7 +242,7 @@ M.defaults = {
       { "n", "<C-w><C-f>",    actions.goto_file_split,             { desc = "Open the file in a new split" } },
       { "n", "<C-w>gf",       actions.goto_file_tab,               { desc = "Open the file in a new tabpage" } },
       { "n", "<leader>e",     actions.focus_files,                 { desc = "Bring focus to the file panel" } },
-      { "n", "<leader>b",     actions.toggle_files,                { desc = "Toggle the file panel" } },
+      -- <leader>b removed: vreview.toggle_panels() owns this binding.
       { "n", "g<C-x>",        actions.cycle_layout,                { desc = "Cycle available layouts" } },
       { "n", "g?",            actions.help("file_history_panel"),  { desc = "Open the help panel" } },
     },
