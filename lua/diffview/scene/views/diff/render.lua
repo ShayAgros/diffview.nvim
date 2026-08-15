@@ -11,7 +11,12 @@ local function render_file(comp, show_path, depth)
   ---@type FileEntry
   local file = comp.context
 
-  comp:add_text(file.status .. " ", hl.get_git_hl(file.status))
+  -- `review_status` lets an external consumer render its own text in the status
+  -- column. It is a separate field because `status` is not display-only:
+  -- Layout.should_null branches on the literal letters to decide which side of
+  -- the diff is nulled, and FileTree aggregates it into folder statuses.
+  comp:add_text((file.review_status or file.status) .. " ",
+    file.review_status_hl or hl.get_git_hl(file.status))
 
   if depth then
     comp:add_text(string.rep(" ", depth * 2 + 2))
