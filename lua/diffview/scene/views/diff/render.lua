@@ -176,6 +176,13 @@ return function(panel)
     comp = panel.components.working.title.comp
     comp:add_text("Changes ", "DiffviewFilePanelTitle")
     comp:add_text("(" .. #panel.files.working .. ")", "DiffviewFilePanelCounter")
+    -- `review_title_extra` lets an external consumer append text to the
+    -- "Changes (N)" title line (vreview writes the review revision here). Purely
+    -- cosmetic; does not affect the file list or any git state.
+    if panel.review_title_extra then
+      comp:add_text("  " .. panel.review_title_extra,
+        panel.review_title_extra_hl or "DiffviewFilePanelTitle")
+    end
     comp:ln()
 
     render_files(panel.listing_style, panel.components.working.files.comp)
